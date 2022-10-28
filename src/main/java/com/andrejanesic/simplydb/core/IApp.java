@@ -3,6 +3,7 @@ package com.andrejanesic.simplydb.core;
 import com.andrejanesic.simplydb.config.IConfig;
 import com.andrejanesic.simplydb.errorhandler.IErrorHandler;
 import com.andrejanesic.simplydb.server.IServer;
+import com.andrejanesic.simplydb.storage.IStorage;
 
 /**
  * <h1>Application framework component.</h1>
@@ -26,16 +27,23 @@ public abstract class IApp {
     private final IServer server;
 
     /**
+     * Storage component.
+     */
+    private final IStorage storage;
+
+    /**
      * <p>Default constructor. Sets component references without initializing.</p>
      *
      * @param errorHandler Error handler component implementation instance.
      * @param config       Config handler component implementation instance.
      * @param server       Server component implementation instance.
+     * @param storage      Storage component implementation instance.
      */
-    public IApp(IErrorHandler errorHandler, IConfig config, IServer server) {
+    public IApp(IErrorHandler errorHandler, IConfig config, IServer server, IStorage storage) {
         this.errorHandler = errorHandler;
         this.config = config;
         this.server = server;
+        this.storage = storage;
     }
 
     /**
@@ -59,5 +67,9 @@ public abstract class IApp {
 
     public IServer getServer() {
         return server;
+    }
+
+    public IStorage getStorage() {
+        return storage;
     }
 }
