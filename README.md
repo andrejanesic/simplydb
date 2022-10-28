@@ -1,6 +1,14 @@
 # SimplyDB
 
-Simple, fast in-memory database.
+Simple and fast in-memory OLTP database.
+
+## Architecture
+
+* Database functionality is called via an IPC.
+* The database is implemented as an in-memory B-tree.
+* A binary log file is used for logging all changes to the database.
+
+The complete architecture can be found in the [Architecture diagram](./meta/Architecture.png).
 
 ## Author
 
